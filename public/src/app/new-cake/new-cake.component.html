@@ -1,0 +1,21 @@
+<div class="row justify-content-center mt-2">
+    <h4 class="text-center">Submit a cake to be rated:</h4>
+</div>
+<form (submit)="createCake()">
+    <div class="form-row justify-content-start mx-2 my-3">
+        <div class="col">
+            <label for="baker_name">Baker Name:</label>
+            <input type="text" class="w-100" name="newCake.baker_name" [(ngModel)]="newCake.baker_name" />
+        </div>
+    </div>
+    <div class="form-row justify-content-start mx-2 my-3">
+        <div class="col">
+            <label for="cake_url">Cake Image URL:</label>
+            <input type="text" class="w-100" name="newCake.cake_url" [(ngModel)]="newCake.cake_url" />
+        </div>
+    </div>
+    <div class="form-row justify-content-end mx-2 my-3">
+        <input type="submit" class="btn btn-primary mr-1" value="Add Cake" />
+    </div>
+</form>
+

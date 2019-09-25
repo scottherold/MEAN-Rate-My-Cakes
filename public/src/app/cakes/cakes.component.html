@@ -1,0 +1,8 @@
+<div class="row justify-content-start py-2 my-1 border-bottom" *ngFor="let cake of cakes">
+    <div id="cakeImg" class="col-4 mr-1 px-2 py-3 align-self-center">
+        <button class="btn btn-link" (click)="showCake(cake._id)"><img src="{{cake.cake_url}}" alt="A cake by {{cake.baker_name}}" class="sm-img" /></button>
+    </div>
+    <div id="ratingForm" class="col-7 mr-1 px-2 py-3">
+        <app-new-rating [cake]="cake" (ratingAdded)="ratingAdded($event)"></app-new-rating>
+    </div>
+</div>

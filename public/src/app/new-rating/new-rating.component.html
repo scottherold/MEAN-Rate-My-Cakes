@@ -1,0 +1,16 @@
+<form id="addRating" (submit)="addRatingFromService(cake._id)">
+    <div class="form-row justify-content-center">
+        <select class="form-control w-50" name="score" [(ngModel)]="newRating.score">
+            <option [value]="5">5 Stars</option>
+            <option [value]="4">4 Stars</option>
+            <option [value]="3">3 Stars</option>
+            <option [value]="2">2 Stars</option>
+            <option [value]="1">1 Star</option>
+        </select>
+    </div>
+    <div class="form-row justify-content-center">
+        <textarea class="w-100 rounded my-2" rows="2" placeholder="Type your comment here" name="comment" [(ngModel)]="newRating.comment"></textarea>
+        <input type="submit" class="btn btn-primary" value="Add Rating" />
+    </div>
+</form>
+

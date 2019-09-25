@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Bootstrap jQuery -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      </head>
+    <body>
+      <div class="container bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <span class="navbar-brand mb-0 h1">Rate My Cakes</span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <button class="btn btn-light" (click)="getCakes()">Show All Cakes</button>
+              </li>
+            </ul>
+            <app-search (searchedCakes)="filterCakes($event)"></app-search>
+          </div>
+        </nav>
+        <div class="row justify-content-center py-3 my-3">
+          <div id="newCake" class="col-4 bg-white p-3">
+            <app-new-cake (cakeAdded)="getCakesFromService()"></app-new-cake>
+          </div>
+          <div id="cakes" class="col-6 bg-white cakes-pane pl-4 ">
+            <app-cakes [cakes]="cakes" (fetchCake)="getCakeFromService($event)" (cakeUpdated)="verifyDisplayCake($event)"></app-cakes>
+          </div>
+        </div>
+        <app-cake *ngIf="cakeClicked" [cake]="cake" (toggleCake)="hideCake()"></app-cake>
+      </div>
+    </body>
+</html>
